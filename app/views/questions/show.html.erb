@@ -30,6 +30,7 @@ Answers:
 
 
 <script type="text/javascript">
+
   $('form').submit(function(){
     var data = $(this).serialize()
     $.post($('form').attr('action') + '.json', data)
