@@ -42,13 +42,15 @@ Answers:
     return false;
   });
 
-  setInterval(function() {
+  var interval = setInterval(function() {
     $.get(window.location.pathname + '/messages').done(function(res){
       var string = ''
       res.forEach(function(m){
         string += '<li>' + m.user.email + ' says: ' + m.content + '</li>'
-      });
+      })
       $('ul').html(string);
+    }).error(function(){
+      clearInterval(interval);
     })
   }, 2000);
 </script>
